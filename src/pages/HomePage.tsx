@@ -72,7 +72,7 @@ export default function HomePage() {
           pasidalinti idėjomis – labai lauksime jūsų žinutės!
         </p>
         <a
-          href="mailto:contact@learnplay.com"
+          href="mailto:info@vaikukampelis.lt"
           className="inline-block bg-white text-purplePrimary font-semibold px-6 py-3 rounded-lg shadow hover:bg-gray-100 transition"
         >
           Parašykite mums

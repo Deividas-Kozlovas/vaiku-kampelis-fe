@@ -76,7 +76,7 @@ export default function Navbar() {
               {openDropdown === "print" && (
                 <div className="absolute bg-white border mt-2 rounded shadow-lg w-52 text-sm z-50">
                   <Link
-                    to="/spausdinti/spalvinimas"
+                    to="/spauzdinti/spalvinimo-lapai"
                     className="block px-4 py-2 hover:bg-purple-100"
                   >
                     Spalvinimo lapai
@@ -211,10 +211,10 @@ export default function Navbar() {
           {openDropdown === "print" && (
             <div className="pl-4 text-sm space-y-1">
               <Link
-                to="/spausdinti/spalvinimas"
+                to="/spauzdinti/spalvinimo-lapai"
                 className="block hover:text-purple-900"
               >
-                Spalvinimo lapai
+                Spalvinimo 22222222
               </Link>
               <Link
                 to="/spausdinti/raides-skaiciai"
@@ -237,10 +237,13 @@ export default function Navbar() {
             </div>
           )}
 
-          <Link to="/apie" className="block hover:text-purple-900">
+          <Link to="/apie-mus" className="block hover:text-purple-900">
             Apie mus
           </Link>
-          <Link to="/privatumas" className="block hover:text-purple-900">
+          <Link
+            to="/privatumo-politika"
+            className="block hover:text-purple-900"
+          >
             Privatumo politika
           </Link>
           <Link to="/kontaktai" className="block hover:text-purple-900">

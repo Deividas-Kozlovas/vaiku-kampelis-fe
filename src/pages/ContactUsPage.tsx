@@ -1,7 +1,7 @@
 export default function ContactUsPage() {
   return (
-    <section className="min-h-screen bg-opacity-90 py-16 px-6 flex flex-col items-center justify-center text-purpleTextDark font-sans">
-      <div className="bg-white p-10 max-w-2xl w-full text-center rounded-lg">
+    <section className=" bg-opacity-90 px-6 py-16  flex flex-col items-center  text-purpleTextDark font-sans">
+      <div className=" bg-white text-purpleTextDark  px-6 py-16  mx-auto">
         <img
           src="https://cdn-icons-png.flaticon.com/512/4140/4140048.png"
           alt="Vaikai rašo laišką"
@@ -18,10 +18,10 @@ export default function ContactUsPage() {
         <div className="bg-purpleLight bg-opacity-30 rounded-lg shadow-lg p-6 text-left">
           <p className="text-lg mb-2 font-semibold">📧 El. paštas:</p>
           <a
-            href="mailto:contact@vaikukampelis.lt"
+            href="mailto:info@vaikukampelis.lt"
             className="text-purplePrimary underline break-all"
           >
-            contact@vaikukampelis.lt
+            info@vaikukampelis.lt
           </a>
           <p className="text-sm text-purpleTextLight mt-10 italic">
             *Mes nesaugome jokių jūsų duomenų. Laiškai siunčiami el. paštu ir

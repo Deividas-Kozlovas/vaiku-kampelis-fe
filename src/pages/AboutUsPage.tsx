@@ -1,6 +1,6 @@
 export default function AboutUsPage() {
   return (
-    <section className="max-w-5xl mx-auto px-6 py-16">
+    <section className=" bg-opacity-90 px-6 py-16  flex flex-col items-center  text-purpleTextDark font-sans">
       <div className="bg-white rounded-xl shadow-lg p-10 flex flex-col md:flex-row items-center text-purplePrimary">
         <div className="md:w-1/2 mb-10 md:mb-0">
           <img

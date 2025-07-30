@@ -5,6 +5,7 @@ import Footer from "./components/Footer";
 import PrivacyPolicyPage from "./pages/PrivacyPolicyPage";
 import AboutUsPage from "./pages/AboutUsPage";
 import ContactUsPage from "./pages/ContactUsPage";
+import ColoringPage from "./pages/printales/ColoringPage";
 
 export default function App() {
   return (
@@ -16,6 +17,10 @@ export default function App() {
           <Routes>
             <Route path="/" element={<HomePage />} />
             <Route path="/apie-mus" element={<AboutUsPage />} />
+            <Route
+              path="/spauzdinti/spalvinimo-lapai"
+              element={<ColoringPage />}
+            />
             <Route path="/kontaktai" element={<ContactUsPage />} />
             <Route path="/privatumo-politika" element={<PrivacyPolicyPage />} />
           </Routes>
