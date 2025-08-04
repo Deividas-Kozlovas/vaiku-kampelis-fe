@@ -1,11 +1,20 @@
+import ContactsImage from "../assets/images/complimentary/ContactUsPage.png";
+
 export default function ContactUsPage() {
   return (
     <section className=" bg-opacity-90 px-6 py-16  flex flex-col items-center  text-purpleTextDark font-sans">
       <div className=" bg-white text-purpleTextDark  px-6 py-16  mx-auto">
         <img
-          src="https://cdn-icons-png.flaticon.com/512/4140/4140048.png"
+          src={ContactsImage}
           alt="Vaikai rašo laišką"
-          className="w-40 mx-auto mb-6"
+          className="
+           w-full
+           max-w-xs     /* small screens */
+           md:max-w-sm  /* medium */
+           lg:max-w-md  /* large */
+           mx-auto
+           mb-6
+         "
         />
         <h1 className="text-4xl font-bold mb-4 text-purplePrimary">
           Susisiekite su mumis

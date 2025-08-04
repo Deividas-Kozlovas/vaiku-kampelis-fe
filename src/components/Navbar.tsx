@@ -1,14 +1,14 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { Link } from "react-router-dom";
-import { ChevronDown, ChevronUp } from "lucide-react"; // naudok lucide-react rodyklei
+// import { ChevronDown, ChevronUp } from "lucide-react"; // naudok lucide-react rodyklei
 
 export default function Navbar() {
   const [isMobileOpen, setIsMobileOpen] = useState(false);
-  const [openDropdown, setOpenDropdown] = useState<string | null>(null);
+  // const [openDropdown, setOpenDropdown] = useState<string | null>(null);
 
-  const toggleDropdown = (name: string) => {
-    setOpenDropdown((prev) => (prev === name ? null : name));
-  };
+  // const toggleDropdown = (name: string) => {
+  //   setOpenDropdown((prev) => (prev === name ? null : name));
+  // };
 
   return (
     <header className="bg-white bg-opacity-80 shadow-md sticky top-0 z-50">
@@ -19,7 +19,7 @@ export default function Navbar() {
           </Link>
 
           <nav className="hidden md:flex space-x-6 text-purple-600 font-semibold items-center">
-            <div className="relative">
+            {/* <div className="relative">
               <button
                 onClick={() => toggleDropdown("games")}
                 className="flex items-center gap-1 hover:text-purple-900 transition"
@@ -59,9 +59,9 @@ export default function Navbar() {
                   </Link>
                 </div>
               )}
-            </div>
+            </div> */}
 
-            <div className="relative">
+            {/* <div className="relative">
               <button
                 onClick={() => toggleDropdown("print")}
                 className="flex items-center gap-1 hover:text-purple-900 transition"
@@ -101,7 +101,7 @@ export default function Navbar() {
                   </Link>
                 </div>
               )}
-            </div>
+            </div> */}
 
             <Link to="/apie-mus" className="hover:text-purple-900 transition">
               Apie mus
@@ -157,7 +157,7 @@ export default function Navbar() {
 
       {isMobileOpen && (
         <div className="md:hidden px-4 pb-4 space-y-2 text-purple-600 font-semibold">
-          <button
+          {/* <button
             onClick={() => toggleDropdown("games")}
             className="flex items-center justify-between w-full"
           >
@@ -167,8 +167,8 @@ export default function Navbar() {
             ) : (
               <ChevronDown className="w-4 h-4" />
             )}
-          </button>
-          {openDropdown === "games" && (
+          </button> */}
+          {/* {openDropdown === "games" && (
             <div className="pl-4 text-sm space-y-1">
               <Link
                 to="/zaidimai/matematika"
@@ -235,7 +235,7 @@ export default function Navbar() {
                 Atvirukai
               </Link>
             </div>
-          )}
+          )} */}
 
           <Link to="/apie-mus" className="block hover:text-purple-900">
             Apie mus
