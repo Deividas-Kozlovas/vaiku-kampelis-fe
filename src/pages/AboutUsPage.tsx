@@ -1,9 +1,9 @@
-import AboutUsImage from "../assets/images/complimentary/AboutUsPage.png";
+import AboutUsImage from "../assets/images/pages/about-us.png";
 
 export default function AboutUsPage() {
   return (
-    <section className=" bg-opacity-90 px-6 py-16  flex flex-col items-center  text-purpleTextDark font-sans">
-      <div className="bg-white rounded-xl shadow-lg p-10 flex flex-col md:flex-row items-center text-purplePrimary">
+    <section className="px-6 py-16 flex flex-col items-center text-purpleTextDark font-sans">
+      <div className="bg-white rounded-xl shadow-lg p-10 flex flex-col md:flex-row items-center text-purplePrimary max-w-5xl mx-auto">
         <div className="md:w-1/2 mb-10 md:mb-0">
           <img
             src={AboutUsImage}

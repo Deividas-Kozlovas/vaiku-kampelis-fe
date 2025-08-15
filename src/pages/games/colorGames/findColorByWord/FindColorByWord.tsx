@@ -1,11 +1,16 @@
 import { useState } from "react";
+import useMobileScrollLock from "../../../../hooks/useMobileScrollLock";
 import { useNavigate } from "react-router-dom";
 import GameOverModal from "../../../../components/games/GameOverModal.component";
 import { generateGrid } from "../../../../utils/cardGames.util";
 import { colorPairs, type ColorPair } from "./findColorByWordData";
 import CardComponent from "../../../../components/games/Card.component";
+import FeedbackOverlay, {
+  type FeedbackType,
+} from "../../../../components/games/FeedbackOverlay.component";
 
 export const ColorMatchGame = () => {
+  useMobileScrollLock(true);
   const navigate = useNavigate();
 
   const [currentIndex, setCurrentIndex] = useState<number>(0);
@@ -13,10 +18,14 @@ export const ColorMatchGame = () => {
   const [gridItems, setGridItems] = useState<ColorPair[]>(() =>
     generateGrid(colorPairs, 0)
   );
+  const [feedback, setFeedback] = useState<FeedbackType>(null);
 
   const handleClick = (item: ColorPair): void => {
     const correct: ColorPair = colorPairs[currentIndex];
-    if (item.lt === correct.lt) {
+    const isCorrect = item.lt === correct.lt;
+    setFeedback(isCorrect ? "correct" : "wrong");
+
+    if (isCorrect) {
       if (currentIndex === colorPairs.length - 1) {
         setIsGameOver(true);
       } else {
@@ -41,6 +50,7 @@ export const ColorMatchGame = () => {
 
   return (
     <>
+      <FeedbackOverlay type={feedback} onDone={() => setFeedback(null)} />
       <div className="relative z-10 flex flex-col h-screen w-screen p-6 bg-purpleLight overflow-hidden">
         {/* Progress */}
         <div className="w-full bg-gray-300 rounded-full h-6 mb-4">

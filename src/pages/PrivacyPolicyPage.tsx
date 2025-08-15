@@ -1,7 +1,7 @@
 export default function PrivacyPolicyPage() {
   return (
-    <section className=" bg-opacity-90 px-6 py-16  flex flex-col items-center  text-purpleTextDark font-sans">
-      <div className=" bg-white text-purpleTextDark  px-6 py-16  mx-auto">
+    <section className="px-6 py-16 flex flex-col items-center text-purpleTextDark font-sans">
+      <div className="bg-white rounded-xl text-purpleTextDark px-6 py-16 mx-auto max-w-5xl">
         <h1 className="text-4xl font-bold mb-6 text-purplePrimary flex items-center justify-center gap-3">
           🔒 Privatumo politika
         </h1>

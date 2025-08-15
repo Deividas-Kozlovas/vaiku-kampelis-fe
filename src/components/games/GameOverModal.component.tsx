@@ -14,7 +14,7 @@ export default function GameOverModal({
   if (!isOpen) return null;
 
   return (
-    <div className="fixed inset-0 z-20 bg-black bg-opacity-70 flex items-center justify-center">
+    <div className="fixed inset-0 z-20 bg-black/70 flex items-center justify-center">
       <div className="bg-white rounded-xl p-8 max-w-sm w-full text-center shadow-lg">
         <h2 className="text-2xl font-bold mb-4">🎉 Žaidimas baigtas!</h2>
         <p className="mb-6 text-lg">Atspėjai visas spalvas!</p>

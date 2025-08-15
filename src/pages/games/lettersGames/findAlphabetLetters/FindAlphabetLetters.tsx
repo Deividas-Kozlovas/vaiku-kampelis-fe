@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import useMobileScrollLock from "../../../../hooks/useMobileScrollLock";
 import { useNavigate } from "react-router-dom";
 import { alphabet } from "./findAlphabetLettersData";
 import GameOverModal from "../../../../components/games/GameOverModal.component";
@@ -7,8 +8,12 @@ import {
   shuffleArray,
 } from "../../../../utils/cardGames.util";
 import CardComponent from "../../../../components/games/Card.component";
+import FeedbackOverlay, {
+  type FeedbackType,
+} from "../../../../components/games/FeedbackOverlay.component";
 
 export default function AlphabetGame() {
+  useMobileScrollLock(true);
   const navigate = useNavigate();
   // prepare the deck
   const initialCards = alphabet.map((letter, index) => ({
@@ -24,6 +29,7 @@ export default function AlphabetGame() {
       .map(() => getRandomLightColor())
   );
   const [isGameOver, setIsGameOver] = useState(false);
+  const [feedback, setFeedback] = useState<FeedbackType>(null);
   const [cardsToShow, setCardsToShow] = useState(() => {
     // initial hand
     const sliced = allCards.slice(0, 9);
@@ -50,7 +56,10 @@ export default function AlphabetGame() {
 
   // handle a click on one of the cards
   function handleClick(card: { originalIndex: number }) {
-    if (card.originalIndex === currentIndex) {
+    const isCorrect = card.originalIndex === currentIndex;
+    setFeedback(isCorrect ? "correct" : "wrong");
+
+    if (isCorrect) {
       if (currentIndex === alphabet.length - 1) {
         setIsGameOver(true);
       } else {
@@ -87,6 +96,7 @@ export default function AlphabetGame() {
 
   return (
     <>
+      <FeedbackOverlay type={feedback} onDone={() => setFeedback(null)} />
       <div className="relative z-20 flex flex-col h-screen w-screen p-6 box-border max-w-screen max-h-screen overflow-hidden bg-purpleLight">
         {/* progress bar */}
         <div className="w-full bg-gray-300 rounded-full h-6 mb-4">

@@ -1,29 +1,9 @@
 import { useState } from "react";
-
-export const bathroomItems: string[] = [
-  "Dušo galvutė",
-  "Kranas maišytuvas",
-  "Vonia",
-  "Dušo užuolaida",
-  "Rankšluostis",
-  "Vonios kilimėlis",
-  "Muilas",
-  "Muilo dozatorius",
-  "Šampūnas",
-  "Dantų šepetėlis",
-  "Dantų pasta",
-  "Burnos skalavimo skystis",
-  "Plaukų džiovintuvas",
-  "Skustuvas",
-  "Tualetinis popierius",
-  "Tualeto šepetys",
-  "Unitazas",
-  "Rankšluosčių laikiklis",
-  "Veidrodis",
-  "Šukos",
-  "Kempinė",
-  "Vonios spintelė",
-];
+import useMobileScrollLock from "../../../hooks/useMobileScrollLock";
+import FeedbackOverlay, {
+  type FeedbackType,
+} from "../../../components/games/FeedbackOverlay.component";
+import { bathroomItems } from "./FindBathroomItemsByWordData";
 
 function safeFileName(name: string) {
   return name
@@ -41,6 +21,7 @@ function safeFileName(name: string) {
 }
 
 export default function BathroomGame() {
+  useMobileScrollLock(true);
   const initialCards = bathroomItems.map((word, index) => ({
     word,
     originalIndex: index,
@@ -49,9 +30,10 @@ export default function BathroomGame() {
   const [allCards, setAllCards] = useState(() => initialCards);
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isGameOver, setIsGameOver] = useState(false);
+  const [feedback, setFeedback] = useState<FeedbackType | null>(null);
 
   function getCardsToShow() {
-    let sliced = allCards.slice(0, 9);
+    const sliced = allCards.slice(0, 9);
     const includesCurrent = sliced.some(
       (card) => card.originalIndex === currentIndex
     );
@@ -69,11 +51,13 @@ export default function BathroomGame() {
   const cardsToShow = getCardsToShow();
 
   function onCardClick(clickedIndex: number) {
-    if (clickedIndex === currentIndex) {
+    const isCorrect = clickedIndex === currentIndex;
+    setFeedback(isCorrect ? "correct" : "wrong");
+    if (isCorrect) {
       if (currentIndex === bathroomItems.length - 1) {
         setIsGameOver(true);
       } else {
-        setCurrentIndex(currentIndex + 1);
+        setCurrentIndex((v) => v + 1);
         const shuffled = allCards.sort(() => Math.random() - 0.5);
         setAllCards([...shuffled]);
       }
@@ -93,13 +77,14 @@ export default function BathroomGame() {
   // Debugging: log image URLs
   console.log(
     "Current image URL:",
-    `/assets/images/findImagesByWords/bathroom/${safeFileName(
+    `/assets/images/find-image-by-word/bathroom/${safeFileName(
       bathroomItems[currentIndex]
     )}.png`
   );
 
   return (
     <>
+      <FeedbackOverlay type={feedback} onDone={() => setFeedback(null)} />
       <div className="relative z-20 flex flex-col h-screen w-screen p-4 box-border max-w-screen max-h-screen overflow-hidden">
         <div
           className="flex-shrink-0 bg-white rounded-2xl shadow-md flex items-center justify-center select-none mb-2
@@ -115,7 +100,7 @@ export default function BathroomGame() {
         >
           {cardsToShow.map(({ originalIndex }) => {
             const fileName = safeFileName(bathroomItems[originalIndex]);
-            const imgUrl = `/assets/images/findImagesByWords/bathroom/${fileName}.png`;
+            const imgUrl = `/assets/images/find-image-by-word/bathroom/${fileName}.png`;
             return (
               <div
                 key={originalIndex}

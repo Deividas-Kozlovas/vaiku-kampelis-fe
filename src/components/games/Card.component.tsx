@@ -21,7 +21,7 @@ export default function CardComponent({
       }}
     >
       {showText && (
-        <span className="text-[clamp(1.75rem,5vw,4rem)] font-bold text-gray-800">
+        <span className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-800">
           {item}
         </span>
       )}

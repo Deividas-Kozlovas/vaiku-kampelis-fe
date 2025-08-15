@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import useMobileScrollLock from "../../../../hooks/useMobileScrollLock";
 import { useNavigate } from "react-router-dom";
 import { numbersToFindInWords, NumberWord } from "./findNumberByWordData";
 import {
@@ -7,8 +8,12 @@ import {
 } from "../../../../utils/cardGames.util";
 import CardComponent from "../../../../components/games/Card.component";
 import GameOverModal from "../../../../components/games/GameOverModal.component";
+import FeedbackOverlay, {
+  type FeedbackType,
+} from "../../../../components/games/FeedbackOverlay.component";
 
 export default function NumberCards() {
+  useMobileScrollLock(true);
   const navigate = useNavigate();
 
   // prepare the deck: each card knows its `index` (1–10), its `word`, and its 0-based array position
@@ -27,6 +32,7 @@ export default function NumberCards() {
       .map(() => getRandomLightColor())
   );
   const [isGameOver, setIsGameOver] = useState(false);
+  const [feedback, setFeedback] = useState<FeedbackType>(null);
 
   // cardsToShow lives in state so it only changes when we explicitly set it
   const [cardsToShow, setCardsToShow] = useState(() => {
@@ -50,7 +56,10 @@ export default function NumberCards() {
 
   // when a card is clicked…
   function handleClick(card: { originalIndex: number }) {
-    if (card.originalIndex === currentIndex) {
+    const isCorrect = card.originalIndex === currentIndex;
+    setFeedback(isCorrect ? "correct" : "wrong");
+
+    if (isCorrect) {
       // correct pick
       if (currentIndex === numbersToFindInWords.length - 1) {
         setIsGameOver(true);
@@ -85,6 +94,7 @@ export default function NumberCards() {
 
   return (
     <>
+      <FeedbackOverlay type={feedback} onDone={() => setFeedback(null)} />
       <div className="relative z-20 flex flex-col h-screen w-screen p-6 box-border max-w-screen max-h-screen overflow-hidden bg-purpleLight">
         {/* progress bar */}
         <div className="w-full bg-gray-300 rounded-full h-6 mb-4">

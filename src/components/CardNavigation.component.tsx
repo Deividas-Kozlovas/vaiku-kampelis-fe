@@ -19,10 +19,10 @@ const CardNavigation: React.FC<CardNavigationProps> = ({ items }) => {
         {items.map((item, index) => (
           <Link to={item.path} key={index} className="no-underline group">
             <div
-              className="relative h-[220px] m-5 rounded-3xl overflow-hidden shadow-lg bg-white 
+              className="relative h-56 m-5 rounded-3xl overflow-hidden shadow-primarySoft bg-white 
                          border border-purpleLight/40 
                          transition-transform duration-300 ease-in-out 
-                         group-hover:-translate-y-2 group-hover:shadow-[0_10px_25px_rgba(124,58,237,0.25)]"
+                         group-hover:-translate-y-2 group-hover:shadow-primaryHover"
             >
               {/* Background image */}
               <img

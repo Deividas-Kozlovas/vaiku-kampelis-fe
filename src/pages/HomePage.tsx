@@ -1,13 +1,14 @@
 // import GameNavigation from "../components/navigation/CardNavigation.component";
-// import confettiImage from "../assets/images/background/confetti-doodles.svg";
-import numbersButton from "../assets/images/buttons/numbers-button.jpeg";
-import lettersButton from "../assets/images/buttons/letters-button.jpeg";
-import colorsButton from "../assets/images/buttons/colors-button.jpeg";
-// import wordsButton from "../assets/images/buttons/words-button.jpeg";
-import heroImage from "../assets/images/complimentary/landingPage.png";
-import CardNavigation from "../components/navigation/CardNavigation.component";
-import coloringButton from "../assets/images/printables/coloring/Bob-Minion-Poking-Tongue-Out-Coloring-Page-742x960.jpg";
-import printableMathButton from "../assets/images/printables/math/Screenshot from 2025-08-03 18-47-27.png";
+// import confettiImage from "../assets/images/backgrounds/confetti-doodles.svg";
+import numbersButton from "../assets/images/buttons/math-button.webp";
+import lettersButton from "../assets/images/buttons/letter-button.webp";
+import colorsButton from "../assets/images/buttons/colors-button.webp";
+// import wordsButton from "../assets/images/buttons/words-button.jpg";
+import heroImage from "../assets/images/pages/landing-page.png";
+import CardNavigation from "../components/CardNavigation.component";
+import SEO from "../components/SEO";
+import coloringButton from "../assets/images/buttons/coloring-button.webp";
+import printableMathButton from "../assets/images/printables/math/math-worksheet-1.png";
 
 export default function HomePage() {
   const games = [
@@ -65,6 +66,12 @@ export default function HomePage() {
   ];
   return (
     <div className="min-h-screen font-sans">
+      <SEO
+        title="Vaikų kampelis – Smagūs mokomieji žaidimai ir spausdinami lapai"
+        description="Interaktyvūs lavinamieji žaidimai vaikams: spalvos, raidės, skaičiai. Nemokami spausdinami užduočių lapai. Mokymasis per žaidimą!"
+        canonical="https://www.vaikukampelis.lt/"
+        ogImage={heroImage}
+      />
       <section className="flex flex-col-reverse md:flex-row items-center justify-between px-8 py-16 max-w-7xl mx-auto">
         <div className="md:w-1/2 space-y-6">
           <h2 className="text-4xl md:text-5xl font-bold text-purplePrimary leading-tight">
@@ -90,9 +97,9 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="max-w-7xl mx-auto p-10 mb-20 bg-white rounded-t-[200px] rounded-b-[80px] shadow-[0_8px_30px_rgba(124,58,237,0.15)] border border-purpleLight/30 overflow-hidden">
+      <section className="max-w-7xl mx-auto p-6 sm:p-8 md:p-10 mb-20 bg-white rounded-t-4xl sm:rounded-t-8xl md:rounded-t-9xl lg:rounded-t-10xl rounded-b-3xl sm:rounded-b-5xl md:rounded-b-6xl lg:rounded-b-7xl shadow-[0_8px_30px_rgba(124,58,237,0.15)] border border-purpleLight/30 overflow-hidden">
         <div className="w-full text-center">
-          <h3 className="text-3xl font-bold inline-block bg-purplePrimary text-white mb-8 rounded-[30px] px-6 py-2 shadow-lg">
+          <h3 className="text-3xl font-bold inline-block bg-purplePrimary text-white mb-8 rounded-3xl px-6 py-2 shadow-lg">
             Pasirink žaidimą ir pradėk mokytis
           </h3>
         </div>
@@ -100,9 +107,9 @@ export default function HomePage() {
         <CardNavigation items={games} />
       </section>
 
-      <section className="max-w-7xl mx-auto p-10 mb-20 bg-white rounded-t-[200px] rounded-b-[80px] shadow-[0_8px_30px_rgba(124,58,237,0.15)] border border-purpleLight/30 overflow-hidden">
+      <section className="max-w-7xl mx-auto p-6 sm:p-8 md:p-10 mb-20 bg-white rounded-t-4xl sm:rounded-t-8xl md:rounded-t-9xl lg:rounded-t-10xl rounded-b-3xl sm:rounded-b-5xl md:rounded-b-6xl lg:rounded-b-7xl shadow-[0_8px_30px_rgba(124,58,237,0.15)] border border-purpleLight/30 overflow-hidden">
         <div className="w-full text-center">
-          <h3 className="text-3xl font-bold inline-block bg-purplePrimary text-white mb-8 rounded-[30px] px-6 py-2 shadow-lg">
+          <h3 className="text-3xl font-bold inline-block bg-purplePrimary text-white mb-8 rounded-3xl px-6 py-2 shadow-lg">
             Pasirinkite kategoriją spausdinimui
           </h3>
         </div>

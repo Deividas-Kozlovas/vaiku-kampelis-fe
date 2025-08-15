@@ -34,13 +34,13 @@ export default function PrintableImageModalComponent({
   };
 
   return (
-    <div className="fixed inset-0 bg-black bg-opacity-80 flex flex-col items-center justify-center z-50 px-4">
+    <div className="fixed inset-0 bg-black/80 flex flex-col items-center justify-center z-50 px-4">
       <div className="relative max-w-full max-h-full">
         <img
           ref={imageRef}
           src={src}
           alt="Full View"
-          className="max-h-[80vh] max-w-[80vw] border-4 border-purple-500 rounded-md shadow-xl"
+          className="max-h-screen-80 max-w-screen-80 border-4 border-purplePrimary rounded-md shadow-xl"
         />
         <div className="mt-4 flex justify-center">
           <button

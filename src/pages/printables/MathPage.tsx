@@ -2,7 +2,7 @@
 import { useState } from "react";
 import PrintablesGalleryComponent from "../../components/printables/PrintablesGallery.component";
 import PrintableImageModalComponent from "../../components/printables/PrintableImageModal.component";
-import MathPrintable from "../../assets/images/printables/math/Screenshot from 2025-08-03 18-47-27.png";
+import MathPrintable from "../../assets/images/printables/math/math-worksheet-1.png";
 
 export default function ColoringGalleryPage() {
   const [selected, setSelected] = useState<string | null>(null);

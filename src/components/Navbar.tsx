@@ -14,11 +14,18 @@ export default function Navbar() {
     <header className="bg-white bg-opacity-80 shadow-md sticky top-0 z-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between h-16 items-center">
-          <Link to="/" className="text-2xl font-extrabold text-purple-700">
-            Vaiku Kampelis
+          <Link
+            to="/"
+            className="flex items-center gap-2 text-2xl font-extrabold text-purple-700"
+          >
+            <img src="/logo.svg" alt="" className="w-12 h-12 shrink-0" />
+            <span>Vaiku Kampelis</span>
           </Link>
 
           <nav className="hidden md:flex space-x-6 text-purple-600 font-semibold items-center">
+            <Link to="/" className="hover:text-purple-900 transition">
+              Pagrindinis
+            </Link>
             {/* <div className="relative">
               <button
                 onClick={() => toggleDropdown("games")}
@@ -106,14 +113,14 @@ export default function Navbar() {
             <Link to="/apie-mus" className="hover:text-purple-900 transition">
               Apie mus
             </Link>
+            <Link to="/kontaktai" className="hover:text-purple-900 transition">
+              Kontaktai
+            </Link>
             <Link
               to="/privatumo-politika"
               className="hover:text-purple-900 transition"
             >
               Privatumas
-            </Link>
-            <Link to="/kontaktai" className="hover:text-purple-900 transition">
-              Kontaktai
             </Link>
           </nav>
 
@@ -157,6 +164,9 @@ export default function Navbar() {
 
       {isMobileOpen && (
         <div className="md:hidden px-4 pb-4 space-y-2 text-purple-600 font-semibold">
+          <Link to="/" className="block hover:text-purple-900">
+            Pagrindinis
+          </Link>
           {/* <button
             onClick={() => toggleDropdown("games")}
             className="flex items-center justify-between w-full"
